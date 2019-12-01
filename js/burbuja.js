@@ -1,44 +1,57 @@
+var datos=[];
+var backgroundColor=[];
+var comparando;
+var segundos;
+var cantidad;
+console.log(datos);
+console.log(backgroundColor);
+console.log(cantidad);
+console.log(segundos);
 
-var datos=[20,5,10,4,1,5,12,6,6,2];
-var comparando='rgba(54, 162, 235, 0.2)';
-var  backgroundColor= [
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                ];
-bubble(datos);
+function ordenar(){
+        comparando='rgba(54, 162, 235, 0.2)';
+        segundos= document.getElementById('segundos').value;
+        cantidad = document.getElementById('cantidad').value;
+        console.log(datos);
+            for (let i = 0; i < cantidad; i++) {
+                datos[i]=Math.floor(Math.random() * 100);
+                backgroundColor[i]='rgba(255, 99, 132, 0.2)';
+        
+            }
+    console.log(datos);
+    console.log(backgroundColor);
+    console.log(cantidad);
+    console.log(segundos);
+    bubble(datos);
+
     
+
+}
+
+
 
 
     
    function graficar(datos){
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'bar',
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var chart = new Chart(ctx, {
 
-    // The data for our dataset
-    data: {
-       labels: datos,
-        datasets: [{
-            label: 'burbuja',
-            backgroundColor: backgroundColor,
-            borderColor: 'rgb(255, 99, 132)',
-            data: datos
-        }]
-    },
+          type: 'bar',
 
-    // Configuration options go here
-    options: {}
-});
+
+          data: {
+             labels: datos,
+              datasets: [{
+                  label: 'burbuja',
+                  backgroundColor: backgroundColor,
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: datos
+              }]
+                },          
+
+            options: {}
+        });
    }
 async function bubble(datos){
         var datosTemp;
@@ -53,19 +66,10 @@ async function bubble(datos){
                     datosTemp=datos[j];
                     datos[j]=datos[j+1];
                     datos[j+1]=datosTemp;
-                    //compara colores
-                    // colorTemp=backgroundColor[j];
-                    // backgroundColor[j]=backgroundColor[j+1];
-                    // backgroundColor[j+1]=colorTemp;
-                   
-                      
                     
-
-                    
-
 
                   graficar(datos);
-                    await timer(3000);
+                    await timer(segundos*1000);
                 }
 
                 backgroundColor[j]='rgba(255, 99, 132, 0.2)';
