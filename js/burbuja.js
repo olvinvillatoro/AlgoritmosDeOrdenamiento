@@ -3,11 +3,16 @@ var backgroundColor=[];
 var comparando;
 var segundos;
 var cantidad;
-console.log(datos);
-console.log(backgroundColor);
-console.log(cantidad);
-console.log(segundos);
+var container = document.getElementById('arreglo');
+let animation = anime.timeline({
+    duration: 1000, 
+    easing: 'easeInOutSine',
+    direction: 'alternate',  
+    loop: true
+  });           
+  
 
+  
 function ordenar(){
         comparando='rgba(54, 162, 235, 0.2)';
         segundos= document.getElementById('segundos').value;
@@ -22,8 +27,20 @@ function ordenar(){
     console.log(backgroundColor);
     console.log(cantidad);
     console.log(segundos);
+    for (let i = 0; i < datos.length; i++) {
+        var objeto= document.createElement("div");
+
+    objeto.setAttribute('id', 'dato'+i);
+    objeto.setAttribute('class', 'dato');
+    objeto.innerText=(datos[i]);
+    container.appendChild(objeto);
+}
     bubble(datos);
 
+
+
+
+       
     
 
 }
@@ -52,6 +69,15 @@ function ordenar(){
 
             options: {}
         });
+
+            //pintar en arreglo vertical
+            if(!container.hasChildNodes){
+                console.log(container);
+                container.forEach(element => {
+                    list.removeChild(element); 
+                });
+            }
+
    }
 async function bubble(datos){
         var datosTemp;
@@ -69,6 +95,9 @@ async function bubble(datos){
                     
 
                   graficar(datos);
+                  repintar(datos);
+                  animar(j+1, j+2);
+
                     await timer(segundos*1000);
                 }
 
@@ -84,7 +113,33 @@ async function bubble(datos){
 
         //console.log(datos);
     }
+//animar arreglo vertical
 
+function animar(d, d1){
+    var d=['#dato'+d,'#dato'+d1 ];
+    anime({
+        targets: d,
+        translateX: 250,
+        direction: 'alternate',
+        left: '240px',
+        backgroundColor: '#d1a52c',
+        borderRadius: ['0%', '20%'],
+        easing: 'easeInOutQuad'
+      });
+      console.log('anime'+d);
+      
+
+}
 function timer(ms) {
  return new Promise(res => setTimeout(res, ms));
+}
+
+function repintar(datos){
+    var cambiarNumero;
+        for (let i = 0; i < datos.length; i++) {
+            cambiarNumero= document.getElementById('dato'+i);
+            console.log('asd'+i);
+            cambiarNumero.innerText=datos[i];
+            
+        }
 }

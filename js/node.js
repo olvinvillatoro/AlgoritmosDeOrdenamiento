@@ -35,23 +35,72 @@ Node.prototype.visit = function(parent) {
   }
 }
 
-Node.prototype.addNode = function(n) {
-  if (n.value < this.value) {
+
+Node.prototype.addNode = function(n, i) {
+  
+    /*if (i%2==0 && this.left==null) {
+      this.left = n;
+      this.left.x = this.x - 50;
+      this.left.y = this.y + 20;
+      
+    }
+    else
+    {
+      this.right = n;
+      this.right.x = this.x + 50;
+      this.right.y = this.y + 20;
+    }
+    if (i%2!=0) {
+          if (this.left == null) {
+            this.left = n;
+            this.left.x = this.x - 50;
+            this.left.y = this.y + 20;
+          }
+          else {
+            this.left.addNode(n,i)
+          }
+    }
+     else {
+          if (this.right == null) {
+            this.right = n;
+            this.right.x = this.x + 50;
+            this.right.y = this.y + 20;
+      
+          } 
+          else {
+            this.right.addNode(n,i)
+          }
+    }
+
+  */
+
+  if (n.value > this.value) {
     if (this.left == null) {
       this.left = n;
       this.left.x = this.x - 50;
       this.left.y = this.y + 20;
     } else {
-      this.left.addNode(n)
+      this.left.addNode(n,i)
     }
-  } else if (n.value > this.value) {
+  } else if (n.value < this.value) {
     if (this.right == null) {
       this.right = n;
       this.right.x = this.x + 50;
       this.right.y = this.y + 20;
 
     } else {
-      this.right.addNode(n);
+      this.right.addNode(n,i)
     }
+  }
+  
+}
+
+Node.prototype.addNodeleft = ()=>{
+  if (this.left == null) {
+    this.left = n;
+    this.left.x = this.x - 50;
+    this.left.y = this.y + 20;
+  } else {
+    this.left.addNodeleft(n,i)
   }
 }

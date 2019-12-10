@@ -6,6 +6,7 @@ var hijoDer;
 var cambiarIdx;
 var temp;
 var idMedia;
+
   function cambiarDerecha(datos, min, maximo){
       var raiz =min;
       while ((raiz*2)+1 <= maximo){
@@ -63,11 +64,13 @@ var idMedia;
             datos[0]=temp;
             maximo--;
             cambiarDerecha(datos, 0, maximo);
-            console.log(datos);
+          
+            
+       
+            console.log(datos,' y que mas');
+
         }
   }
 
   HEAPSORT(numeros, 6);
-
-
-
+  
