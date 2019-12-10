@@ -1,22 +1,24 @@
-
-
 #circulo {
     width: 2.5em;
     height: 2.5em;
     margin-top: auto;
     margin-bottom: auto;
     border-radius: 50%;
-  }
-  
-.green{
+}
+
+.green {
     background-color: green;
-}  
-.blue{
+}
+
+.blue {
     background-color: blue;
 }
-.red{
+
+.red {
     background-color: red;
 }
+
+
 /*
 #arreglo{
     background-color: crimson;
@@ -29,13 +31,28 @@
 
 #arreglo div {
     text-align: center;
-    color:floralwhite;
+    color: floralwhite;
     width: 2.5em;
     height: 2.5em;
     margin-top: 0.10em;
     margin-bottom: auto;
     margin-left: 2.7em;
-    
-    background-color:rebeccapurple;
-  }
-  
+    background-color: rebeccapurple;
+}
+
+.colorOrdenada {
+    background-color: rgb(157, 238, 164);
+    margin-left: 10px;
+    font-size: 120%;
+}
+
+.colorAleatoria {
+    background-color: rgb(157, 208, 238);
+    margin-left: 10px;
+    font-size: 120%;
+    margin-bottom: 30px;
+}
+
+h1 {
+    padding-top: 20px;
+}

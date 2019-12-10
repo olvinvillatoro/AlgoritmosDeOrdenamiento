@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css">
-    
+
 </head>
-<body>
-    
-    <div>
-            <label for="cantidad">Cantidad </label>
-            <input type="number" name="cantidad"  id="cantidad" min="3" max="20">
-            <label for="segundos" >Segundos por Ciclo (1-5)</label>
-            <input type="number"  name="segundos" id="segundos"min="1" max="5">
-            <button onclick="ordenar()" id="ordenar">Ordenar</button>
+
+<body style="background-color: #efffff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>
+                    <h1>Ordenamiento burbuja</h1><br></center>
+                <h5>La Ordenación de burbuja (Bubble Sort en inglés) es un sencillo algoritmo de ordenamiento. Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado.
+                    Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada. Este algoritmo obtiene su nombre de la forma con la que suben por la lista los elementos durante
+                    los intercambios, como si fueran pequeñas "burbujas". También es conocido como el método del intercambio directo. Dado que solo usa comparaciones para operar elementos, se lo considera un algoritmo de comparación, siendo uno de los
+                    más sencillos de implementar.</h5><br>
+                <center><label for="cantidad">Cantidad </label>
+                    <input type="number" name="cantidad" id="cantidad" min="3" max="20">
+                    <label for="segundos">Segundos por Ciclo (1-5)</label>
+                    <input type="number" name="segundos" id="segundos" min="1" max="5">
+                    <button onclick="ordenar()" id="ordenar">Ordenar</button></center>
+            </div>
+        </div>
     </div>
-    <canvas id="myChart"></canvas>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row row-cols-1" id="listaAleatoria">
+                </div>
+                <div class="row row-cols-1" id="listaOrdenada">
+                </div>
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
     <div id="arreglo"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
     <script src="js/burbuja.js"></script>
-   
+
 </body>
+
 </html>
