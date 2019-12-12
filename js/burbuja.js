@@ -14,7 +14,8 @@ let animation = anime.timeline({
 
 
 function ordenar() {
-    var start = Date.now();
+    document.getElementById('arreglo').innerHTML = ``;
+    document.getElementById('myChart').innerHTML = ``;
     comparando = 'rgba(54, 162, 235, 0.2)';
     segundos = document.getElementById('segundos').value;
     cantidad = document.getElementById('cantidad').value;
