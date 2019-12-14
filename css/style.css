@@ -1,9 +1,10 @@
 #circulo {
-    width: 2.5em;
-    height: 2.5em;
-    margin-top: auto;
-    margin-bottom: auto;
+    width: 40px;
+    height: 40px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     border-radius: 50%;
+    border-radius: 10%;
 }
 
 .green {
@@ -17,6 +18,17 @@
 .red {
     background-color: red;
 }
+
+body{
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+#overlay {
+    height: 0px;
+    overflow: visible;
+    pointer-events: none;
+    background:none !important;
+  }
 
 
 /*

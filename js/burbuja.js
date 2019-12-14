@@ -4,12 +4,7 @@ var comparando;
 var segundos;
 var cantidad;
 var container = document.getElementById('arreglo');
-let animation = anime.timeline({
-    duration: 1000,
-    easing: 'easeInOutSine',
-    direction: 'alternate',
-    loop: true
-});
+
 
 
 
@@ -19,7 +14,6 @@ function ordenar() {
     comparando = 'rgba(54, 162, 235, 0.2)';
     segundos = document.getElementById('segundos').value;
     cantidad = document.getElementById('cantidad').value;
-    console.log(datos);
     document.getElementById('listaAleatoria').innerHTML = ``;
     for (let i = 0; i < cantidad; i++) {
         datos[i] = Math.floor(Math.random() * 100);
@@ -29,15 +23,12 @@ function ordenar() {
         `;
 
     }
-    console.log(datos);
-    console.log(backgroundColor);
-    console.log(cantidad);
-    console.log(segundos);
+ 
     for (let i = 0; i < datos.length; i++) {
         var objeto = document.createElement("div");
 
         objeto.setAttribute('id', 'dato' + i);
-        objeto.setAttribute('class', 'dato');
+        objeto.setAttribute('class', 'dato rounded');
         objeto.innerText = (datos[i]);
         container.appendChild(objeto);
     }
@@ -66,7 +57,7 @@ function graficar(datos) {
         data: {
             labels: datos,
             datasets: [{
-                label: 'burbuja',
+                label: 'Ordenamiento Burbuja',
                 backgroundColor: backgroundColor,
                 borderColor: 'rgb(255, 99, 132)',
                 data: datos
@@ -78,7 +69,6 @@ function graficar(datos) {
 
     //pintar en arreglo vertical
     if (!container.hasChildNodes) {
-        console.log(container);
         container.forEach(element => {
             list.removeChild(element);
         });
@@ -87,30 +77,46 @@ function graficar(datos) {
 }
 async function bubble(datos) {
     var datosTemp;
+    
     var colorTemp;
-    for (let i = 1; i < datos.length - 1; i++) {
-        for (let j = 0; j < datos.length - i; j++) {
+    graficar(datos);
+    await timer(2*1000);
+    for (let i = 1; i < datos.length; i++) {
+        for (let j = 0; j < datos.length -i; j++) {
 
-            backgroundColor[j + 2] = comparando;
+            backgroundColor[j] = comparando;
             backgroundColor[j + 1] = comparando;
-            backgroundColor[j] = 'rgba(255, 99, 132, 0.2)';
+            graficar(datos);
+            animar(j, j + 1);
             if (datos[j] > datos[j + 1]) {
+                
+                await timer(2 * 1000);
+               // trasladarYup(j);
+                //trasladarYdown(j+1);
                 datosTemp = datos[j];
                 datos[j] = datos[j + 1];
                 datos[j + 1] = datosTemp;
+                
 
-
+                
+                
+                
+               
+                 repintar(datos,j + 1, j + 2 );
+                
+             
+            
                 graficar(datos);
-                repintar(datos);
-                animar(j + 1, j + 2);
-
-                await timer(segundos * 1000);
+                await timer(2 * 1000);
+            }
+            else{
+                graficar(datos);
+                animar(j, j + 1);
+                await timer(2 * 1000);
             }
 
             backgroundColor[j] = 'rgba(255, 99, 132, 0.2)';
-            //setInterval(graficar(datos), 3000);
 
-            console.log(datos);
 
         }
 
@@ -125,7 +131,7 @@ async function bubble(datos) {
     }
 
 
-    //console.log(datos);
+    console.dir(datos);
 }
 //animar arreglo vertical
 
@@ -133,28 +139,75 @@ function animar(d, d1) {
     var d = ['#dato' + d, '#dato' + d1];
     anime({
         targets: d,
-        translateX: 250,
+        translateX: 70,
         direction: 'alternate',
         left: '240px',
         backgroundColor: '#d1a52c',
         borderRadius: ['0%', '20%'],
         easing: 'easeInOutQuad'
     });
-    console.log('anime' + d);
+    
+    
 
 
+}
+
+function trasladarYup(d){
+    anime.remove('#dato'+d);
+    anime({
+        targets: '#dato'+d,
+        translateY: 42
+      });
+    
+    // anime({
+        
+    //     targets: '#dato'+d,
+    //     keyframes: [ 
+    //         {translateX: 250},
+    //         {translateY: 42},
+    //         {translateX: 0}           
+            
+    //     ],
+    //     duration: 3500,
+    //     easing: 'easeInOutSine',
+    //     loop: false
+    //   });
+}
+function trasladarYdown(d){
+    anime.remove('#dato'+d);
+    anime({
+        targets: '#dato'+d,
+        translateY: -42
+      });
+    // anime({
+ 
+        
+    //     targets: '#dato'+d,
+    //     keyframes: [ 
+    //         {translateX: 250},
+    //         {translateY:-42},
+    //         {translateX: 0},           
+            
+    //     ],
+    //     duration: 3500,
+    //     easing: 'easeInOutSine',
+    //     loop: false
+          
+    //   });
 }
 
 function timer(ms) {
     return new Promise(res => setTimeout(res, ms));
 }
 
-function repintar(datos) {
+function repintar(datos, k, l) {
     var cambiarNumero;
     for (let i = 0; i < datos.length; i++) {
         cambiarNumero = document.getElementById('dato' + i);
-        console.log('asd' + i);
         cambiarNumero.innerText = datos[i];
+       
+       
+        
 
     }
 }
