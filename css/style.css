@@ -19,16 +19,17 @@
     background-color: red;
 }
 
-body{
-    background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+body {
+    background: rgb(247, 204, 222);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgb(179, 204, 233) 100%);
 }
+
 #overlay {
     height: 0px;
     overflow: visible;
     pointer-events: none;
-    background:none !important;
-  }
+    background: none !important;
+}
 
 
 /*
@@ -67,4 +68,12 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 
 h1 {
     padding-top: 20px;
+}
+
+.bg-dark {
+    background-color: rgb(134, 115, 245) !important;
+}
+
+.jumbotron {
+    background-color: #fff !important;
 }
