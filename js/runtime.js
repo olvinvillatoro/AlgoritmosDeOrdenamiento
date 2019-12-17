@@ -16,36 +16,36 @@ function tiempos(){
             lista2[index]=randomNumber;
             lista3[index]=randomNumber;
         }
-    //runtime de quicksort
-    t2=performance.now();
-    sortedArray = quick_Sort(lista);
-    t1=performance.now();
-    tquicksort=(t2-t1)/1000;
-    
-    // runtime burbuja
-    t1 = performance.now();
-    Burbuja(lista1);
-    t2 = performance.now();
-    tburbuja=(t2-t1)/1000;
-    //runtime bucket
-    t1=performance.now();
-    var cub=bucketSort(lista2, cantDatos);
-    t2=performance.now();
-    var bucket= (t2-t1)/1000;
-    
-    //runtime shakesort
-    t1=performance.now();
-    shakesort(lista3);
-    t2=performance.now();
-    var tshakesort= (t2-t1)/1000;
-    //guardar tiempos calculados para devolverlos
-    tiempos[0]=tquicksort;
-    tiempos[1]=tburbuja;
-    tiempos[2]=bucket;
-    tiempos[3]=tshakesort;
-    
-    console.log(tiempos);
-    return tiempos;
+                //runtime de quicksort
+                t2=performance.now();
+                sortedArray = quickSort(lista, 0, lista.length - 1);
+                t1=performance.now();
+                tquicksort=(t2-t1)/1000;
+                
+                // runtime burbuja
+                t1 = performance.now();
+                Burbuja(lista1);
+                t2 = performance.now();
+                tburbuja=(t2-t1)/1000;
+                //runtime bucket
+                t1=performance.now();
+                var cub=bucketSort(lista2, cantDatos);
+                t2=performance.now();
+                var bucket= (t2-t1)/1000;
+                
+                //runtime shakesort
+                t1=performance.now();
+                shakesort(lista3);
+                t2=performance.now();
+                var tshakesort= (t2-t1)/1000;
+                //guardar tiempos calculados para devolverlos
+                tiempos[0]=tquicksort;
+                tiempos[1]=tburbuja;
+                tiempos[2]=bucket;
+                tiempos[3]=tshakesort;
+                
+        console.log(tiempos);
+        return tiempos;
     }
     
     function Burbuja(lista) {
@@ -93,6 +93,48 @@ function tiempos(){
     
     }
     
+
+
+        
+function swap(items, leftIndex, rightIndex){
+        var temp = items[leftIndex];
+        items[leftIndex] = items[rightIndex];
+        items[rightIndex] = temp;
+}
+function partition(items, left, right) {
+    var pivot   = items[Math.floor((right + left) / 2)], //middle element
+        i       = left, //left pointer
+        j       = right; //right pointer
+    while (i <= j) {
+        while (items[i] < pivot) {
+            i++;
+        }
+        while (items[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(items, i, j); //sawpping two elements
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+
+function quickSort(items, left, right) {
+    var index;
+    if (items.length > 1) {
+        index = partition(items, left, right); //index returned from partition
+        if (left < index - 1) { //more elements on the left side of the pivot
+            quickSort(items, left, index - 1);
+        }
+        if (index < right) { //more elements on the right side of the pivot
+            quickSort(items, index, right);
+        }
+    }
+    return items;
+}
+
     
     // InsertionSort to be used within bucket sort
     function insertionSort(array) {
@@ -193,10 +235,7 @@ function tiempos(){
     
     
     
-    /*console.log(sortedArray);
-    console.log(tburbuja + 'ms  ' + tquicksort + 'ms');
-    document.writeln('tiempo de ejecucion de con burbuja ' + tburbuja / 1000 + 's  ');
-    document.writeln('tiempo de ejecucion de con burbuja ' + tquicksort / 1000 + 's');*/
+   
     
     function graficar() {
       var colores = ["rgba(241,28,39,1,0.3)", //red
@@ -215,7 +254,7 @@ function tiempos(){
             //    backgroundColor: colores,
                 datasets: [{
                     label: '50,000 Datos',
-                    backgroundColor:'rgba(38,231,28,1,0.3)',//["rgba(241,28,39,1)", //red
+                    backgroundColor:'rgba(38,231,28,0.1)',//["rgba(241,28,39,1)", //red
                     // "rgba(28,145,241,1)",//blue
                     // "rgba(231,221,28,1)", //yellow
                     // "rgba(38,231,28,1)", //green
@@ -224,12 +263,12 @@ function tiempos(){
                     data: datos
                 }, {
                   label:'5,000 Datos',
-                  backgroundColor:"rgba(28,145,241,0.4)",//blue
+                  backgroundColor:"rgba(28,145,241,0.2)",//blue
                   data:datos1
                 },
                 {
                     label:'500 Datos',
-                   backgroundColor:"rgba(231,221,28,1,0.4)",
+                   backgroundColor:"rgba(231,221,28,0.3)",
                     data:datos2
                   },
                   {
@@ -254,6 +293,7 @@ function tiempos(){
     console.log(tburbuja+'ms  '+tquicksort+'ms');
     console.log(cub);
     }
+
     
     
     

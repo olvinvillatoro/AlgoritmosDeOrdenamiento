@@ -25,25 +25,13 @@ function ordenar() {
     for (let i = 0; i < cantidad; i++) {
         datos[i] = Math.floor(Math.random() * 100);
         backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
-        //     document.getElementById('listaAleatoria').innerHTML += `
-        //  <div class="col colorAleatoria">${datos[i]}</div>
-        // `;
+            document.getElementById('listaAleatoria').innerHTML += `
+         <div class="col colorAleatoria">${datos[i]}</div>
+        `;
 
     }
 
-    // for (let i = 0; i < datos.length; i++) {
-    //     var objeto = document.createElement("div");
-
-    //     objeto.setAttribute('id', 'dato' + i);
-    //     objeto.setAttribute('class', 'dato');
-    //     objeto.innerText = (datos[i]);
-    //     container.appendChild(objeto);
-    // }
-    t0 = performance.now();
-    shaker(datos);
-    t1 = performance.now();
-    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
-
+   
 
 
 }
@@ -140,7 +128,7 @@ function graficar(datos) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        display: false //this will remove only the label
+                        display: false  //Remover los labels del eje Y
                     }
                 }]
             }

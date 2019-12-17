@@ -1,4 +1,4 @@
-var datos = [5, 82, 15, 83, 92, 100, 32, 63, 44, 55];
+var datos = [];
 var backgroundColor = [];
 var comparando;
 var segundos;
