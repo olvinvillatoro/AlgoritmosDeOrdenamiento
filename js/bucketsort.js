@@ -8,15 +8,22 @@ var container = document.getElementById('arreglo');
 
 comparando = 'rgba(54, 162, 235, 0.2)';
 segundos = 3 // document.getElementById('segundos').value;
-cantidad = 10 //document.getElementById('cantidad').value;
-document.getElementById('listaAleatoria').innerHTML = ``;
-for (let i = 0; i < cantidad; i++) {
-    datos[i] = Math.floor(Math.random() * 100);
-    backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
-    document.getElementById('listaAleatoria').innerHTML += `
+
+
+function ordenar() {
+    cantidad = document.getElementById('cantidad').value;
+    document.getElementById('listaAleatoria').innerHTML = ``;
+    document.getElementById('listaOrdenada').innerHTML = ``;
+    document.getElementById('arreglo').innerHTML = ``;
+    for (let i = 0; i < cantidad; i++) {
+        datos[i] = Math.floor(Math.random() * 100);
+        backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
+        document.getElementById('listaAleatoria').innerHTML += `
        <div class="col colorAleatoria">${datos[i]}</div>
         `;
 
+    }
+    bucketSort(datos, 10);
 }
 
 // for (let i = 0; i < datos.length; i++) {
@@ -147,4 +154,3 @@ async function repintar(array) {
     }
 
 }
-bucketSort(datos, 10);

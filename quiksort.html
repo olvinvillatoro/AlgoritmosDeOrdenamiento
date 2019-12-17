@@ -21,8 +21,10 @@
                 <a class="nav-item nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="runtime.html">Tiempos de Ejecucion</a>
                 <a class="nav-item nav-link" href="burbuja.html">Burbuja</a>
-                <a class="nav-item nav-link disabled active" href="shakersort.html">ShakeSort</a>
+                <a class="nav-item nav-link disabled" href="shakersort.html">ShakeSort</a>
                 <a class="nav-item nav-link disabled" href="bucketsort.html">Bucketsort</a>
+                <a class="nav-item nav-link disabled  active" href="quiksort.html">QuickSort</a>
+
             </div>
         </div>
     </nav>
@@ -32,7 +34,7 @@
 
                 <div class="jumbotron">
                     <center>
-                        <h1 class="display-4">Ordenamiento ShakeSort</h1>
+                        <h1 class="display-4">Ordenamiento QuickSort</h1>
                     </center>
 
                     <hr class="my-4">
@@ -41,16 +43,18 @@
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Resumen Ordenamiento shakersort
+                                  Resumen Ordenamiento QuickSort
                                 </button>
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
-                                    <p class="lead">La ordenación de agitador, a diferencia de la ordenación de burbujas, ordena la matriz en ambas direcciones. Por lo tanto, cada iteración del algoritmo consta de dos fases. En la primera, la burbuja más ligera asciende
-                                        hasta el final de la matriz, en la segunda fase, la burbuja más pesada desciende hasta el comienzo de la matriz.</p>
-                                    <p class="lead">De esta manera , se mitiga una imperfección de tipo burbuja, el problema de los conejos y las tortugas . El problema de los conejos y las tortugas es una situación de tipo burbuja, cuando se coloca una burbuja pesada
-                                        al final de la matriz. Mientras que las burbujas ligeras (conejos) ascienden rápidamente, la burbuja pesada (tortuga) desciende solo una posición por cada iteración.</p>
+                                    <p class="lead">El algoritmo trabaja de la siguiente forma:</p>
+                                    <p class="lead">1. Elegir un elemento del conjunto de elementos a ordenar, al que llamaremos pivote.</p>
+                                    <p class="lead">2. Resituar los demás elementos de la lista a cada lado del pivote, de manera que a un lado queden todos los menores que él, y al otro los mayores. Los elementos iguales al pivote pueden ser colocados tanto a su derecha
+                                        como a su izquierda, dependiendo de la implementación deseada. En este momento, el pivote ocupa exactamente el lugar que le corresponderá en la lista ordenada.</p>
+                                    <p class="lead">3. La lista queda separada en dos sublistas, una formada por los elementos a la izquierda del pivote, y otra por los elementos a su derecha.</p>
+                                    <p class="lead">4. Repetir este proceso de forma recursiva para cada sublista mientras éstas contengan más de un elemento. Una vez terminado este proceso todos los elementos estarán ordenados</p>
                                 </div>
                             </div>
                         </div>
@@ -58,47 +62,46 @@
                             <div class="card-header" id="headingTree">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTree" aria-expanded="false" aria-controls="collapseTree">
-                                  Algoritmo de ShakeSort
+                                  Algoritmo de QuickSort
                                 </button>
                                 </h5>
                             </div>
                             <div id="collapseTree" class="collapse" aria-labelledby="headingTree" data-parent="#accordion">
                                 <div class="card-body">
                                     <div class="funcion">
-                                        <img src="img/snak.PNG" class="img-fluid" alt="Responsive image">
+                                        <img src="img/Quik.PNG" class="img-fluid" alt="Responsive image">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+
+                    <center><label for="cantidad">Cantidad </label>
+                        <input type="number" name="cantidad" id="cantidad" min="3" max="20">
+
+                        <button onclick="ordenar()" id="ordenar">Ordenar</button></center>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row row-cols-1" id="listaAleatoria">
+                    </div>
+                    <div class="row row-cols-1" id="listaOrdenada">
                     </div>
 
                 </div>
-             
-                <center><label for="cantidad">Cantidad </label>
-                    <input type="number" name="cantidad" id="cantidad" min="3" max="20">
-                    
-                    <button onclick="ordenar()" id="ordenar">Ordenar</button></center>
+                <div id='overlay' class="col-sm-6">
+                    <canvas id="quicksort"></canvas>
+                </div>
+                <div class="col-sm-6">
+                    <div id="arreglo"></div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row row-cols-1" id="listaAleatoria">
-                </div>
-                <div class="row row-cols-1" id="listaOrdenada">
-                </div>
-
-            </div>
-            <div id='overlay' class="col-sm-6">
-                <canvas id="quicksort"></canvas>
-            </div>
-            <div class="col-sm-6">
-                <div id="arreglo"></div>
-            </div>
-        </div>
-    </div>
 
         <!--LIBRERIAS-->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
