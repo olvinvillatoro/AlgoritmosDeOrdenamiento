@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,105 @@
     <title>Bucket Sort</title>
     <link rel="stylesheet" href="css/runtime.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="runtime.html">Tiempos de Ejecucion</a>
+                <a class="nav-item nav-link" href="burbuja.html">Burbuja</a>
+                <a class="nav-item nav-link disabled" href="shakersort.html">ShakeSort</a>
+                <a class="nav-item nav-link disabled active" href="bucketsort.html">Bucketsort</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="jumbotron">
+                    <center>
+                        <h1 class="display-4">Ordenamiento bucket sort o bin sort</h1>
+                    </center>
+
+                    <hr class="my-4">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Resumen Ordenamiento bucket sort o bin sort
+                                </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p class="lead">El ordenamiento por casilleros (bucket sort o bin sort, en inglés) es un algoritmo de ordenamiento que distribuye todos los elementos a ordenar entre un número finito de casilleros. Cada casillero sólo puede contener
+                                        los elementos que cumplan unas determinadas condiciones. En el ejemplo esas condiciones son intervalos de números. Las condiciones deben ser excluyentes entre sí, para evitar que un elemento pueda ser clasificado
+                                        en dos casilleros distintos. Después cada uno de esos casilleros se ordena individualmente con otro algoritmo de ordenación (que podría ser distinto según el casillero), o se aplica recursivamente este algoritmo
+                                        para obtener casilleros con menos elementos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTree" aria-expanded="false" aria-controls="collapseTree">
+                                  Algoritmo de bucket sort o bin sort
+                                </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTree" class="collapse" aria-labelledby="headingTree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p class="lead">función bucket-sort(elementos, n)</p>
+                                    <div class="funcion">
+                                        <p class="lead"> casilleros ← colección de n listas</p>
+                                        <p class="lead"> para i = 1 hasta longitud(elementos) hacer</p>
+                                        <p class="lead c"> c ← buscar el casillero adecuado</p>
+                                        <p class="lead c"> insertar elementos[i] en casillero[c] </p>
+                                        <p class="lead"> fin para </p>
+                                        <p class="lead"> para i = 1 hasta n hacer </p>
+                                        <p class="lead c"> ordenar(casilleros[i])</p>
+                                        <p class="lead"> fin para </p>
+                                        <p class="lead"> devolver</p>
+                                        <p class="lead"> la concatenación de casilleros[1],..., casilleros[n]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <center><label for="cantidad">Cantidad </label>
+                    <input type="number" name="cantidad" id="cantidad" min="3" max="20">
+                    <label for="segundos">Segundos por Ciclo (1-5)</label>
+                    <input type="number" name="segundos" id="segundos" min="3" max="5">
+                    <button onclick="ordenar()" id="ordenar">Ordenar</button></center>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
 
             <div class="col-sm-12">
                 <div class="row row-cols-1" id="listaAleatoria">
                 </div>
-                
 
+                <div class="row row-cols-1" id="listaOrdenada">
+                </div>
             </div>
             <!-- <div id='overlay' class="col-sm-6">
                 <canvas id="myChart"></canvas>
             </div> -->
-           
-            
-            
+
+
+
         </div>
         <div class="row">
             <div id="cubetas" class="col-lg">
@@ -32,19 +114,19 @@
                 <div id="arreglo"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="row row-cols-1" id="listaOrdenada">
-            </div>
-        </div>
-            
-        </div>
- <!--LIBRERIAS-->
+    </div>
+    <!--LIBRERIAS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
- <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<!--Algoritmo de ordenamiento-->
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!--Algoritmo de ordenamiento-->
     <script src="js/bucketsort.js"></script>
 </body>
+
 </html>
