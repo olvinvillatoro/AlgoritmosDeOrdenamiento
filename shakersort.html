@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shake Sort</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark>
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="runtime.html">Tiempos de Ejecucion</a>
-        <a class="nav-item nav-link" href="#">Burbuja</a>
-        <a class="nav-item nav-link disabled" href="#">ShakeSort</a>
-      </div>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="runtime.html">Tiempos de Ejecucion</a>
+                <a class="nav-item nav-link" href="burbuja.html">Burbuja</a>
+                <a class="nav-item nav-link disabled active" href="shakersort.html">ShakeSort</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="jumbotron">
+                    <center>
+                        <h1 class="display-4">Ordenamiento ShakeSort</h1>
+                    </center>
+
+                    <hr class="my-4">
+                    <p class="lead">La ordenación de agitador, a diferencia de la ordenación de burbujas, ordena la matriz en ambas direcciones. Por lo tanto, cada iteración del algoritmo consta de dos fases. En la primera, la burbuja más ligera asciende hasta el final
+                        de la matriz, en la segunda fase, la burbuja más pesada desciende hasta el comienzo de la matriz.</p>
+                    <p class="lead">De esta manera , se mitiga una imperfección de tipo burbuja, el problema de los conejos y las tortugas . El problema de los conejos y las tortugas es una situación de tipo burbuja, cuando se coloca una burbuja pesada al final de la
+                        matriz. Mientras que las burbujas ligeras (conejos) ascienden rápidamente, la burbuja pesada (tortuga) desciende solo una posición por cada iteración.</p>
+                </div>
+                <center><label for="cantidad">Cantidad </label>
+                    <input type="number" name="cantidad" id="cantidad" min="3" max="20">
+                    <label for="segundos">Segundos por Ciclo (1-5)</label>
+                    <input type="number" name="segundos" id="segundos" min="3" max="5">
+                    <button onclick="ordenar()" id="ordenar">Ordenar</button></center>
+            </div>
+        </div>
     </div>
-  </nav>
 
     <div class="container">
-            <div class="row">
-                
-                <div id='overlay' class="col-md">
-                    <canvas id="shaker"></canvas>
-                </div>
-                <div class="col-md">
-                    <div id="arreglo" >
+        <div class="row">
 
-                    </div>
+            <div id='overlay' class="col-md">
+                <canvas id="shaker"></canvas>
             </div>
-    </div>
-   
-    <!--LIBRERIAS-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <!--Algoritmo de ordenamiento-->
-    <script src="js/shakersort.js"></script>
+            <div class="col-md">
+                <div id="arreglo">
+
+                </div>
+            </div>
+        </div>
+
+        <!--LIBRERIAS-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <!--Algoritmo de ordenamiento-->
+        <script src="js/shakersort.js"></script>
 </body>
+
 </html>

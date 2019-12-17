@@ -12,7 +12,7 @@ function ordenar() {
     document.getElementById('arreglo').innerHTML = ``;
     document.getElementById('myChart').innerHTML = ``;
     comparando = 'rgba(54, 162, 235, 0.2)';
-    segundos = document.getElementById('segundos').value;
+    segundos = 2;
     cantidad = document.getElementById('cantidad').value;
     document.getElementById('listaAleatoria').innerHTML = ``;
     for (let i = 0; i < cantidad; i++) {

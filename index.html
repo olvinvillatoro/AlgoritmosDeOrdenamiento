@@ -1,100 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark>
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="runtime.html">Tiempos de Ejecucion</a>
-            <a class="nav-item nav-link" href="#">Burbuja</a>
-            <a class="nav-item nav-link disabled" href="#">ShakeSort</a>
-          </div>
-        </div>
-      </nav>
-    
-
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <center>
-                    <h1>Ordenamiento burbuja</h1><br></center>
-                    
-                      
-                        
 
-                        <div id="accordion">
-                            <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Collapsible Group Item #1
-                                </button>
-                                </h5>
-                            </div>
-                        
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                    La Ordenación de burbuja (Bubble Sort en inglés) es un sencillo algoritmo de ordenamiento. Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado.
-                                    Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada. Este algoritmo obtiene su nombre de la forma con la que suben por la lista los elementos durante
-                                    los intercambios, como si fueran pequeñas "burbujas". También es conocido como el método del intercambio directo. Dado que solo usa comparaciones para operar elementos, se lo considera un algoritmo de comparación, siendo uno de los
-                                    más sencillos de implementar.
-                                </div>
-                            </div>
-                            </div>
+                <div class="jumbotron">
+                    <center>
+                        <h1 class="display-4">Algoritmos de Ordenamiento</h1>
+                    </center>
 
+                    <hr class="my-4">
+                    <p class="lead">En computación y matemáticas un algoritmo de ordenamiento es un algoritmo que pone elementos de una lista o un vector en una secuencia dada por una relación de orden, es decir, el resultado de salida ha de ser una permutación —o reordenamiento—
+                        de la entrada que satisfaga la relación de orden dada. Las relaciones de orden más usadas son el orden numérico y el orden lexicográfico. Ordenamientos eficientes son importantes para optimizar el uso de otros algoritmos (como
+                        los de búsqueda y fusión) que requieren listas ordenadas para una ejecución rápida. También es útil para poner datos en forma canónica y para generar resultados legibles por humanos.</p>
+                    <p class="lead">Desde los comienzos de la computación, el problema del ordenamiento ha atraído gran cantidad de investigación, tal vez debido a la complejidad de resolverlo eficientemente a pesar de su planteamiento simple y familiar. Por ejemplo,
+                        BubbleSort fue analizado desde 1956.1​ Aunque muchos puedan considerarlo un problema resuelto, nuevos y útiles algoritmos de ordenamiento se siguen inventado hasta el día de hoy (por ejemplo, el ordenamiento de biblioteca se publicó
+                        por primera vez en el 2004). Los algoritmos de ordenamiento son comunes en las clases introductorias a la computación, donde la abundancia de algoritmos para el problema proporciona una gentil introducción a la variedad de conceptos
+                        núcleo de los algoritmos, como notación de O mayúscula, algoritmos divide y vencerás, estructuras de datos, análisis de los casos peor, mejor, y promedio, y límites inferiores.
+                    </p>
+                    <p class="lead">A continuacion presentamos la demostrasion de los siguientes algoritmos de ordenamiento:</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="lead">
+                                <a href="burbuja.html">Burbuja</a>
+                            </p>
                         </div>
-
-
-                      
-                    
-                <center><label for="cantidad">Cantidad </label>
-                    <input type="number" name="cantidad" id="cantidad" min="3" max="20">
-                    <label for="segundos">Segundos por Ciclo (1-5)</label>
-                    <input type="number" name="segundos" id="segundos" min="3" max="5">
-                    <button onclick="ordenar()" id="ordenar">Ordenar</button></center>
+                        <div class="col-sm-6">
+                            <p class="lead">
+                                <a href="shakersort.html">Snaker Sort</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="lead">
+                                <a href="">Quicksort</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="lead">
+                                <a href="bucketsort.html">Binsort</a>
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="lead">
+                                <a href="runtime.html">Tiempos de Ejecucion</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row row-cols-1" id="listaAleatoria">
-                </div>
-                <div class="row row-cols-1" id="listaOrdenada">
-                </div>
 
-            </div>
-            <div id='overlay' class="col-sm-6">
-                <canvas id="myChart"></canvas>
-            </div>
-            <div class="col-sm-6">
-                <div id="arreglo"></div>
-            </div>
-        </div>
-    </div>
- <!--LIBRERIAS-->
- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
- <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<!--Algoritmo de ordenamiento-->
-    <script src="js/burbuja.js"></script>
+        <!--LIBRERIAS-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <!--Algoritmo de ordenamiento-->
+        <script src="js/burbuja.js"></script>
 
 </body>
 
