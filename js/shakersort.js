@@ -15,13 +15,12 @@ var t1;
 
 
 
-
 function ordenar() {
     //document.getElementById('arreglo').innerHTML = ``;
     document.getElementById('shaker').innerHTML = ``;
     comparando = 'rgba(252, 20, 20)';
-    segundos = 3;//document.getElementById('segundos').value;
-    cantidad = 5;//document.getElementById('cantidad').value;
+    segundos = 1;//document.getElementById('segundos').value;
+    cantidad = 30;//document.getElementById('cantidad').value;
     //document.getElementById('listaAleatoria').innerHTML = ``;
     for (let i = 0; i < cantidad; i++) {
         datos[i] = Math.floor(Math.random() * 100);
@@ -32,18 +31,18 @@ function ordenar() {
 
     }
  
-    for (let i = 0; i < datos.length; i++) {
-        var objeto = document.createElement("div");
+    // for (let i = 0; i < datos.length; i++) {
+    //     var objeto = document.createElement("div");
 
-        objeto.setAttribute('id', 'dato' + i);
-        objeto.setAttribute('class', 'dato');
-        objeto.innerText = (datos[i]);
-        container.appendChild(objeto);
-    }
-    t0 = performance.now();
-    shaker(datos);
-    t1 = performance.now();
-    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
+    //     objeto.setAttribute('id', 'dato' + i);
+    //     objeto.setAttribute('class', 'dato');
+    //     objeto.innerText = (datos[i]);
+    //     container.appendChild(objeto);
+    // }
+     t0 = performance.now();
+     shaker(datos);
+     t1 = performance.now();
+     console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
 
 
 
@@ -60,9 +59,9 @@ while (ordenando){
     
     for (let i = 0; i< arr.length - 1;i++){
             backgroundColor[i] = 'rgba(20, 248, 252)';
-            backgroundColor[i+1] =  'rgba(20, 248, 252)';
+            //backgroundColor[i+1] =  'rgba(20, 248, 252)';
             graficar(arr);
-            await timer(2 * 1000);
+            await timer(0.1 * 1000);
             if (arr[i] > arr[i + 1])
              {
 
@@ -85,11 +84,11 @@ while (ordenando){
  
     for (let j = arr.length - 1; j > 0; j--){
       
-        backgroundColor[j-1]=comparando;
-        backgroundColor[j] = comparando;
+        //backgroundColor[j-1]=comparando;
+       backgroundColor[j] = comparando;
         graficar(arr);
         
-        await timer(2 * 1000);
+        await timer(0.1 * 1000);
             if (arr[j-1] > arr[j])
              {
                
@@ -120,6 +119,9 @@ function graficar(datos) {
 
         type: 'bar',
         easing:'',
+        gridLines:{
+            display:false,
+        },
 
         data: {
             labels: datos,
@@ -131,7 +133,22 @@ function graficar(datos) {
             }]
         },
 
-        options: {}
+        
+
+        options: {
+            animation: {
+                duration: 0
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        display: false //this will remove only the label
+                    }
+                }]
+            }
+        }
+
+
     });
 
     // //pintar en arreglo vertical

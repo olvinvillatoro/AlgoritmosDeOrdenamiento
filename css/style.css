@@ -41,7 +41,8 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 }
 */
 
-#arreglo div {
+/* #arreglo div  */
+.dato{
     text-align: center;
     color: floralwhite;
     width: 2.5em;
@@ -49,7 +50,9 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
     margin-top: 0.10em;
     margin-bottom: auto;
     margin-left: 2.7em;
+    float: left;
     background-color: rebeccapurple;
+    
 }
 
 .colorOrdenada {
@@ -68,3 +71,33 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 h1 {
     padding-top: 20px;
 }
+
+.cubeta{
+    width: 40px;
+    height: 40px;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    border-radius: 10%;
+    margin-top: 4px;
+    float: left;
+    background-color:goldenrod;
+}
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    margin-left: 2px;
+    margin-right: 2px;
+    float: left;
+    border-top: 20px solid #f00;
+  }
+  #cubetas{
+      width: 500px;
+      height: 500px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }

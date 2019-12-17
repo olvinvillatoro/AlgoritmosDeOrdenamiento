@@ -63,8 +63,18 @@ function graficar(datos) {
                 data: datos
             }]
         },
-
-        options: {}
+        options: {
+            animation: {
+                duration: 0
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        display: false //this will remove only the label
+                    }
+                }]
+            }
+        }
     });
 
     //pintar en arreglo vertical
@@ -88,16 +98,17 @@ async function bubble(datos) {
             backgroundColor[j + 1] = comparando;
             graficar(datos);
             animar(j, j + 1);
+            await timer(2 * 1000);
             if (datos[j] > datos[j + 1]) {
                 
                 await timer(2 * 1000);
-               // trasladarYup(j);
-                //trasladarYdown(j+1);
+                trasladarYup(j);
+                trasladarYdown(j+1);
                 datosTemp = datos[j];
                 datos[j] = datos[j + 1];
                 datos[j + 1] = datosTemp;
                 
-
+                await timer(2 * 1000);
                 
                 
                 
@@ -111,7 +122,7 @@ async function bubble(datos) {
             }
             else{
                 graficar(datos);
-                animar(j, j + 1);
+               // animar(j, j + 1);
                 await timer(2 * 1000);
             }
 
@@ -159,11 +170,11 @@ function trasladarYup(d){
         translateY: 42
       });
     
-    // anime({
+    //  anime({
         
     //     targets: '#dato'+d,
-    //     keyframes: [ 
-    //         {translateX: 250},
+    //    keyframes: [ 
+    //          {translateX: 250},
     //         {translateY: 42},
     //         {translateX: 0}           
             
@@ -201,13 +212,14 @@ function timer(ms) {
 }
 
 function repintar(datos, k, l) {
+    document.getElementById('arreglo').innerHTML = ``;
     var cambiarNumero;
     for (let i = 0; i < datos.length; i++) {
-        cambiarNumero = document.getElementById('dato' + i);
-        cambiarNumero.innerText = datos[i];
-       
-       
-        
+        var objeto = document.createElement("div");
 
+        objeto.setAttribute('id', 'dato' + i);
+        objeto.setAttribute('class', 'dato rounded');
+        objeto.innerText = (datos[i]);
+        container.appendChild(objeto);
     }
 }
