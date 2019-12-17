@@ -21,6 +21,7 @@
                 <a class="nav-item nav-link" href="runtime.html">Tiempos de Ejecucion</a>
                 <a class="nav-item nav-link active" href="burbuja.html">Burbuja</a>
                 <a class="nav-item nav-link disabled" href="shakersort.html">ShakeSort</a>
+                <a class="nav-item nav-link disabled" href="bucketsort.html">Bucketsort</a>
             </div>
         </div>
     </nav>
@@ -36,10 +37,25 @@
                     </center>
 
                     <hr class="my-4">
-                    <p class="lead">La Ordenación de burbuja (Bubble Sort en inglés) es un sencillo algoritmo de ordenamiento. Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado.
-                        Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada. Este algoritmo obtiene su nombre de la forma con la que suben por la lista los elementos
-                        durante los intercambios, como si fueran pequeñas "burbujas". También es conocido como el método del intercambio directo. Dado que solo usa comparaciones para operar elementos, se lo considera un algoritmo de comparación, siendo
-                        uno de los más sencillos de implementar.</p>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Resumen Ordenamiento burbuja
+                                </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p class="lead">La Ordenación de burbuja (Bubble Sort en inglés) es un sencillo algoritmo de ordenamiento. Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están
+                                        en el orden equivocado. Es necesario revisar varias veces toda la lista hasta que no se necesiten más intercambios, lo cual significa que la lista está ordenada. Este algoritmo obtiene su nombre de la forma con
+                                        la que suben por la lista los elementos durante los intercambios, como si fueran pequeñas "burbujas". También es conocido como el método del intercambio directo. Dado que solo usa comparaciones para operar elementos,
+                                        se lo considera un algoritmo de comparación, siendo uno de los más sencillos de implementar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <center><label for="cantidad">Cantidad </label>
                     <input type="number" name="cantidad" id="cantidad" min="3" max="20">

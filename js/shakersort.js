@@ -1,8 +1,8 @@
 "use strict";
- 
+
 var datos = [];
 var backgroundColor = [];
-var comparando ;
+var comparando;
 var segundos;
 var cantidad;
 var container = document.getElementById('arreglo');
@@ -19,18 +19,18 @@ function ordenar() {
     //document.getElementById('arreglo').innerHTML = ``;
     document.getElementById('shaker').innerHTML = ``;
     comparando = 'rgba(252, 20, 20)';
-    segundos = 1;//document.getElementById('segundos').value;
-    cantidad = 30;//document.getElementById('cantidad').value;
+    segundos = document.getElementById('segundos').value;
+    cantidad = document.getElementById('cantidad').value;
     //document.getElementById('listaAleatoria').innerHTML = ``;
     for (let i = 0; i < cantidad; i++) {
         datos[i] = Math.floor(Math.random() * 100);
         backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
-   //     document.getElementById('listaAleatoria').innerHTML += `
-     //  <div class="col colorAleatoria">${datos[i]}</div>
-       // `;
+        //     document.getElementById('listaAleatoria').innerHTML += `
+        //  <div class="col colorAleatoria">${datos[i]}</div>
+        // `;
 
     }
- 
+
     // for (let i = 0; i < datos.length; i++) {
     //     var objeto = document.createElement("div");
 
@@ -39,10 +39,10 @@ function ordenar() {
     //     objeto.innerText = (datos[i]);
     //     container.appendChild(objeto);
     // }
-     t0 = performance.now();
-     shaker(datos);
-     t1 = performance.now();
-     console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
+    t0 = performance.now();
+    shaker(datos);
+    t1 = performance.now();
+    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
 
 
 
@@ -50,63 +50,61 @@ function ordenar() {
 
 
 
-async function shaker(arr){
-let ordenando = true;
-graficar(arr);
-await timer(2*1000);
-while (ordenando){
-   
-    
-    for (let i = 0; i< arr.length - 1;i++){
+async function shaker(arr) {
+    let ordenando = true;
+    graficar(arr);
+    await timer(2 * 1000);
+    while (ordenando) {
+
+
+        for (let i = 0; i < arr.length - 1; i++) {
             backgroundColor[i] = 'rgba(20, 248, 252)';
             //backgroundColor[i+1] =  'rgba(20, 248, 252)';
             graficar(arr);
             await timer(0.1 * 1000);
-            if (arr[i] > arr[i + 1])
-             {
+            if (arr[i] > arr[i + 1]) {
 
-               
+
                 let temp = arr[i];
                 arr[i] = arr[i + 1];
-                arr[i+1] = temp;
+                arr[i + 1] = temp;
                 ordenando = true;
-              
+
                 console.log(arr);
-              
-             }
-             backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
-    }
- 
-    if (!ordenando)
-        break;
- 
-    ordenando = false;
- 
-    for (let j = arr.length - 1; j > 0; j--){
-      
-        //backgroundColor[j-1]=comparando;
-       backgroundColor[j] = comparando;
-        graficar(arr);
-        
-        await timer(0.1 * 1000);
-            if (arr[j-1] > arr[j])
-             {
-               
+
+            }
+            backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
+        }
+
+        if (!ordenando)
+            break;
+
+        ordenando = false;
+
+        for (let j = arr.length - 1; j > 0; j--) {
+
+            //backgroundColor[j-1]=comparando;
+            backgroundColor[j] = comparando;
+            graficar(arr);
+
+            await timer(0.1 * 1000);
+            if (arr[j - 1] > arr[j]) {
+
 
                 let temp = arr[j];
                 arr[j] = arr[j - 1];
                 arr[j - 1] = temp;
                 ordenando = true;
-                
+
                 console.log(arr);
-             }
-             
-             backgroundColor[j] = 'rgba(255, 99, 132, 0.2)';
+            }
+
+            backgroundColor[j] = 'rgba(255, 99, 132, 0.2)';
+        }
+
     }
-    
-}
-console.log(arr);
- 
+    console.log(arr);
+
 }
 
 
@@ -118,9 +116,9 @@ function graficar(datos) {
     var chart = new Chart(ctx, {
 
         type: 'bar',
-        easing:'',
-        gridLines:{
-            display:false,
+        easing: '',
+        gridLines: {
+            display: false,
         },
 
         data: {
@@ -133,7 +131,7 @@ function graficar(datos) {
             }]
         },
 
-        
+
 
         options: {
             animation: {
@@ -165,5 +163,3 @@ function graficar(datos) {
 function timer(ms) {
     return new Promise(res => setTimeout(res, ms));
 }
-
-ordenar();

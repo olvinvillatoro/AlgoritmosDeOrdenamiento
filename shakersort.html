@@ -22,6 +22,7 @@
                 <a class="nav-item nav-link" href="runtime.html">Tiempos de Ejecucion</a>
                 <a class="nav-item nav-link" href="burbuja.html">Burbuja</a>
                 <a class="nav-item nav-link disabled active" href="shakersort.html">ShakeSort</a>
+                <a class="nav-item nav-link disabled" href="bucketsort.html">Bucketsort</a>
             </div>
         </div>
     </nav>
@@ -35,10 +36,26 @@
                     </center>
 
                     <hr class="my-4">
-                    <p class="lead">La ordenación de agitador, a diferencia de la ordenación de burbujas, ordena la matriz en ambas direcciones. Por lo tanto, cada iteración del algoritmo consta de dos fases. En la primera, la burbuja más ligera asciende hasta el final
-                        de la matriz, en la segunda fase, la burbuja más pesada desciende hasta el comienzo de la matriz.</p>
-                    <p class="lead">De esta manera , se mitiga una imperfección de tipo burbuja, el problema de los conejos y las tortugas . El problema de los conejos y las tortugas es una situación de tipo burbuja, cuando se coloca una burbuja pesada al final de la
-                        matriz. Mientras que las burbujas ligeras (conejos) ascienden rápidamente, la burbuja pesada (tortuga) desciende solo una posición por cada iteración.</p>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Resumen Ordenamiento shakersort
+                                </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p class="lead">La ordenación de agitador, a diferencia de la ordenación de burbujas, ordena la matriz en ambas direcciones. Por lo tanto, cada iteración del algoritmo consta de dos fases. En la primera, la burbuja más ligera asciende
+                                        hasta el final de la matriz, en la segunda fase, la burbuja más pesada desciende hasta el comienzo de la matriz.</p>
+                                    <p class="lead">De esta manera , se mitiga una imperfección de tipo burbuja, el problema de los conejos y las tortugas . El problema de los conejos y las tortugas es una situación de tipo burbuja, cuando se coloca una burbuja pesada
+                                        al final de la matriz. Mientras que las burbujas ligeras (conejos) ascienden rápidamente, la burbuja pesada (tortuga) desciende solo una posición por cada iteración.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <center><label for="cantidad">Cantidad </label>
                     <input type="number" name="cantidad" id="cantidad" min="3" max="20">
@@ -63,6 +80,11 @@
         </div>
 
         <!--LIBRERIAS-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
