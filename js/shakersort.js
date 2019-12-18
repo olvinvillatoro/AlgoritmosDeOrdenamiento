@@ -17,22 +17,26 @@ var t1;
 
 function ordenar() {
     //document.getElementById('arreglo').innerHTML = ``;
+    document.getElementById('listaOrdenada').innerHTML = ``;
     document.getElementById('shaker').innerHTML = ``;
     comparando = 'rgba(252, 20, 20)';
-    segundos = document.getElementById('segundos').value;
+    // segundos = document.getElementById('segundos').value;
     cantidad = document.getElementById('cantidad').value;
-    //document.getElementById('listaAleatoria').innerHTML = ``;
-    for (let i = 0; i < cantidad; i++) {
-        datos[i] = Math.floor(Math.random() * 100);
-        backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
+    document.getElementById('listaAleatoria').innerHTML = ``;
+    if (cantidad <= 3) {
+        alert('numero invalido');
+    } else {
+        for (let i = 0; i < cantidad; i++) {
+            datos[i] = Math.floor(Math.random() * 100);
+            backgroundColor[i] = 'rgba(255, 99, 132, 0.2)';
             document.getElementById('listaAleatoria').innerHTML += `
          <div class="col colorAleatoria">${datos[i]}</div>
         `;
 
+        }
+
+        shaker(datos);
     }
-
-   
-
 
 }
 
@@ -93,6 +97,13 @@ async function shaker(arr) {
     }
     console.log(arr);
 
+    for (let k = 0; k < arr.length; k++) {
+        document.getElementById('listaOrdenada').innerHTML += `
+           <div class="col colorOrdenada">${arr[k]}</div>
+        `;
+
+    }
+
 }
 
 
@@ -128,7 +139,7 @@ function graficar(datos) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        display: false  //Remover los labels del eje Y
+                        display: false //Remover los labels del eje Y
                     }
                 }]
             }
