@@ -1,3 +1,3 @@
 # AlgoritmosDeOrdenamiento
-Aplicacion educativa, ver de forma grafica el ordenamiento de diferentes algoritmos tales como, burbuja, quicksort, heapsort, entre otros.
-Link del demo de la aplicacion: <link>algoritmosdeordenamiento.imfast.io</link>
+Aplicacion educativa, ver de forma grafica el ordenamiento de diferentes algoritmos tales como, burbuja, quicksort, heapsort, entre otros. <a href="algoritmosdeordenamiento.imfast.io">
+Link del demo de la aplicacion</a>
